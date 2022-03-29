@@ -1,7 +1,7 @@
 .app-wrapper {
     margin: 0 auto;
     display: grid;
-    width: 1280px;
+    width: 800px;
     gap: 10px;
 
     grid-template-areas:
@@ -10,31 +10,4 @@
 
     grid-template-rows: auto;
     grid-template-columns: 2fr 10fr;
-}
-
-.header {
-    grid-area: h;
-    background-color: darkblue;
-    border-radius: 10px;
-}
-
-.header img {
-    width: 250px;
-}
-
-.nav {
-    grid-area: n;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: darkviolet;
-}
-
-.content {
-    grid-area: c;
-    background-color: #5e00b5;
-    padding: 10px;
-    border-radius: 10px;
-}
-.content img {
-  height: 250px;
 }
