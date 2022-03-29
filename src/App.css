@@ -31,7 +31,7 @@
 
 .content {
     grid-area: c;
-    background-color: darkmagenta;
+    background-color: #5e00b5;
     padding: 10px;
     border-radius: 10px;
 }
