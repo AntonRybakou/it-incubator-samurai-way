@@ -11,10 +11,8 @@ export const MyPosts: React.FC<any> = (props) => {
                 <button>Add post</button>
             </div>
             <div className={s.posts}>
-                <Post/>
-                <Post/>
-                <Post/>
-                <Post/>
+                <Post message="Hello, how are you?"/>
+                <Post message="Let's play a game"/>
             </div>
         </div>
     )
