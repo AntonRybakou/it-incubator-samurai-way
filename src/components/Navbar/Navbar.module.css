@@ -2,7 +2,8 @@
     grid-area: n;
     padding: 10px;
     border-radius: 10px;
-    background-color: darkviolet;
+    background-color: #353535;
+    box-shadow: black 0 0 10px;
 }
 
 .item {

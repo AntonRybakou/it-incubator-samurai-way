@@ -11,3 +11,11 @@
     grid-template-rows: auto;
     grid-template-columns: 2fr 10fr;
 }
+
+.app-wrapper-content {
+    grid-area: c;
+    background-color: #454545;
+    box-shadow: black 0 0 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
