@@ -10,6 +10,18 @@
 .dialog {
     margin: 10px auto;
     text-align: center;
+    text-decoration: none;
+    color: white;
+}
+.dialog:hover {
+    color: gold;
+}
+
+.dialogActive {
+    margin: 10px auto;
+    text-align: center;
+    text-decoration: none;
+    color: gold;
 }
 
 .messages {

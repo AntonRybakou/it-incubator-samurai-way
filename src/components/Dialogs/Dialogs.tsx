@@ -2,39 +2,51 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 
-export const Dialogs = () => {
+type DialogItemType = {
+    name: string,
+    id: number,
+}
+type MessageType = {
+    message: string,
+}
+type DialogType = {
+
+}
+
+const DialogItem: React.FC<DialogItemType> = (props) => {
+    let path = '/dialogs/' + props.id;
+
+    return (
+        <div className={s.dialog}>
+            <NavLink to={path}
+                     className={navData => navData.isActive ? s.dialogActive : s.dialog}>{props.name}</NavLink>
+        </div>
+    )
+}
+const Message: React.FC<MessageType> = (props) => {
+    return (
+        <div className={s.message}>
+            {props.message}
+        </div>
+    )
+}
+
+export const Dialogs: React.FC<DialogType> = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/1'}>Name1</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/2'}>Name2</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/3'}>Name3</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/4'}>Name4</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/5'}>Name5</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to={'/dialogs/6'}>Name6</NavLink>
-                </div>
+                <DialogItem name={'Name1'} id={1}/>
+                <DialogItem name={'Name2'} id={2}/>
+                <DialogItem name={'Name3'} id={3}/>
+                <DialogItem name={'Name4'} id={4}/>
+                <DialogItem name={'Name5'} id={5}/>
+                <DialogItem name={'Name6'} id={6}/>
             </div>
             <div className={s.messages}>
-                <div className={s.message}>
-                    message1
-                </div>
-                <div className={s.message}>
-                    message2
-                </div>
-                <div className={s.message}>
-                    message3
-                </div>
+                <Message message={'something 1'}/>
+                <Message message={'something 2'}/>
+                <Message message={'something 3'}/>
+
             </div>
         </div>
     );
