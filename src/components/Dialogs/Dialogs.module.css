@@ -1,0 +1,23 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItems {
+    place-self: center;
+}
+
+.dialog {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.messages {
+    padding: 0 10px;
+}
+
+.message {
+    margin: 10px auto;
+    border-bottom: 1px dotted black;
+}
+

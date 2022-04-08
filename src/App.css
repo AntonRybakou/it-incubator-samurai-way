@@ -7,9 +7,10 @@
     grid-template-areas:
   "h h"
   "n c";
-
     grid-template-rows: auto;
     grid-template-columns: 2fr 10fr;
+
+    font-family: "JetBrains Mono", monospace;
 }
 
 .app-wrapper-content {
