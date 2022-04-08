@@ -4,7 +4,7 @@
 }
 
 .dialogsItems {
-    place-self: center;
+    justify-self: center;
 }
 
 .dialog {

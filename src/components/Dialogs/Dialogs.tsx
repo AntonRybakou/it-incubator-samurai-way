@@ -3,19 +3,25 @@ import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 
 type DialogItemType = {
-    name: string,
     id: number,
+    name: string,
 }
 type MessageType = {
     message: string,
 }
-type DialogType = {
-
+type DialogDataType = {
+    id: number,
+    name: string,
 }
+type MessageDataType = {
+    id: number,
+    name: string,
+}
+type DialogType = {}
 
-const DialogItem: React.FC<DialogItemType> = (props) => {
+// Функция отрисовки одного элемента из списка имен
+const DialogItem = (props: DialogItemType) => {
     let path = '/dialogs/' + props.id;
-
     return (
         <div className={s.dialog}>
             <NavLink to={path}
@@ -23,7 +29,8 @@ const DialogItem: React.FC<DialogItemType> = (props) => {
         </div>
     )
 }
-const Message: React.FC<MessageType> = (props) => {
+// Функция отрисовки одного элемента из списка сообщений
+const MessageItem = (props: MessageType) => {
     return (
         <div className={s.message}>
             {props.message}
@@ -32,21 +39,44 @@ const Message: React.FC<MessageType> = (props) => {
 }
 
 export const Dialogs: React.FC<DialogType> = (props) => {
+    // Данные для отрисовки списка имен
+    let DialogData: Array<DialogDataType> = [
+        {id: 1, name: "Name1"},
+        {id: 2, name: "Name2"},
+        {id: 3, name: "Name3"},
+        {id: 4, name: "Name4"},
+        {id: 5, name: "Name5"},
+        {id: 6, name: "Name6"},
+    ]
+    // Данные для отрисовки сообщений
+    let MessageData: Array<MessageDataType> = [
+        {id: 1, name: "Message 1"},
+        {id: 2, name: "Message 2"},
+        {id: 3, name: "Message 3"},
+        {id: 4, name: "Message 4"},
+        {id: 5, name: "Message 5"},
+        {id: 6, name: "Message 6"},
+    ]
+    // Функция отрисовки всего списка имен
+    const nameList = (DialogData.map(d => {
+        return (
+            <DialogItem name={d.name} id={d.id}/>
+        )
+    }))
+    //Функция отрисовки всего списка сообщений
+    const messageList = MessageData.map(m => {
+        return (
+            <MessageItem message={m.name}/>
+        )
+    })
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <DialogItem name={'Name1'} id={1}/>
-                <DialogItem name={'Name2'} id={2}/>
-                <DialogItem name={'Name3'} id={3}/>
-                <DialogItem name={'Name4'} id={4}/>
-                <DialogItem name={'Name5'} id={5}/>
-                <DialogItem name={'Name6'} id={6}/>
+                {nameList}
             </div>
             <div className={s.messages}>
-                <Message message={'something 1'}/>
-                <Message message={'something 2'}/>
-                <Message message={'something 3'}/>
-
+                {messageList}
             </div>
         </div>
     );

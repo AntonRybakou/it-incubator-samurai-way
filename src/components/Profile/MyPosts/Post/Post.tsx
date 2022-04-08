@@ -3,7 +3,7 @@ import s from './Post.module.css'
 
 type PropsMessage = {
     message: string;
-    likesCount: string;
+    likesCount: number;
 }
 
 
