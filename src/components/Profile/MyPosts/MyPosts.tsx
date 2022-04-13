@@ -8,20 +8,16 @@ type PostsDataType = {
     likesCount: number;
 }
 
-
 export const MyPosts: React.FC<any> = (props) => {
-
-    // Данные для списка сообщений
+    // Posts data (initial state)
     let postsData: Array<PostsDataType> = [
-        {id:1, message: "Hello, how are you?", likesCount: 0},
-        {id:2, message: "Let's play a game", likesCount: 11},
-        {id:3, message: "Message 4", likesCount: 11},
-        {id:4, message: "Message 5", likesCount: 83},
+        {id: 1, message: "Hello, how are you?", likesCount: 0},
+        {id: 2, message: "Let's play a game", likesCount: 11},
+        {id: 3, message: "Message 4", likesCount: 11},
+        {id: 4, message: "Message 5", likesCount: 83},
     ]
-    // Функция отрисовки всего списка сообщений
-    const PostsList = ( postsData.map( p => {
-        return <Post message={p.message} likesCount={p.likesCount}/>
-    } ) )
+    // Function to render all posts from data (map)
+    const postsList = postsData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
     return (
         <div className={s.postsBlock}>
@@ -35,7 +31,7 @@ export const MyPosts: React.FC<any> = (props) => {
                 </div>
             </div>
             <div className={s.posts}>
-                {PostsList}
+                {postsList}
             </div>
         </div>
     )

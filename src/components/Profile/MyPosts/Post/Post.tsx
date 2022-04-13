@@ -6,7 +6,6 @@ type PropsMessage = {
     likesCount: number;
 }
 
-
 export const Post: React.FC<PropsMessage> = (props) => {
     return (
         <div className={s.item}>

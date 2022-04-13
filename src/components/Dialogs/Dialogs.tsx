@@ -19,7 +19,7 @@ type MessageDataType = {
 }
 type DialogType = {}
 
-// Функция отрисовки одного элемента из списка имен
+// Function to render one element from names list
 const DialogItem = (props: DialogItemType) => {
     let path = '/dialogs/' + props.id;
     return (
@@ -29,7 +29,7 @@ const DialogItem = (props: DialogItemType) => {
         </div>
     )
 }
-// Функция отрисовки одного элемента из списка сообщений
+// Function to render one element from messages list
 const MessageItem = (props: MessageType) => {
     return (
         <div className={s.message}>
@@ -39,7 +39,7 @@ const MessageItem = (props: MessageType) => {
 }
 
 export const Dialogs: React.FC<DialogType> = (props) => {
-    // Данные для отрисовки списка имен
+    // Names data (initial state)
     let DialogData: Array<DialogDataType> = [
         {id: 1, name: "Name1"},
         {id: 2, name: "Name2"},
@@ -48,7 +48,7 @@ export const Dialogs: React.FC<DialogType> = (props) => {
         {id: 5, name: "Name5"},
         {id: 6, name: "Name6"},
     ]
-    // Данные для отрисовки сообщений
+    // Messages data (initial state)
     let MessageData: Array<MessageDataType> = [
         {id: 1, name: "Message 1"},
         {id: 2, name: "Message 2"},
@@ -57,26 +57,18 @@ export const Dialogs: React.FC<DialogType> = (props) => {
         {id: 5, name: "Message 5"},
         {id: 6, name: "Message 6"},
     ]
-    // Функция отрисовки всего списка имен
-    const nameList = (DialogData.map(d => {
-        return (
-            <DialogItem name={d.name} id={d.id}/>
-        )
-    }))
-    //Функция отрисовки всего списка сообщений
-    const messageList = MessageData.map(m => {
-        return (
-            <MessageItem message={m.name}/>
-        )
-    })
+    // Function to render names list from data (map)
+    const namesList = DialogData.map(d => <DialogItem name={d.name} id={d.id}/>)
+    // Function to render messages list from data (map)
+    const messagesList = MessageData.map(m => <MessageItem message={m.name}/>)
 
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                {nameList}
+                {namesList}
             </div>
             <div className={s.messages}>
-                {messageList}
+                {messagesList}
             </div>
         </div>
     );
