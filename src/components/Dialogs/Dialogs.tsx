@@ -1,42 +1,18 @@
 import React from 'react';
 import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
+import {DialogItem} from "./DialogItem/DialogItem";
+import {MessageItem} from "./MessageItem/MessageItem";
 
-type DialogItemType = {
+export type DialogDataType = {
     id: number,
     name: string,
 }
-type MessageType = {
+export type MessageDataType = {
+    id: number,
     message: string,
 }
-type DialogDataType = {
-    id: number,
-    name: string,
-}
-type MessageDataType = {
-    id: number,
-    name: string,
-}
 type DialogType = {}
-
-// Function to render one element from names list
-const DialogItem = (props: DialogItemType) => {
-    let path = '/dialogs/' + props.id;
-    return (
-        <div className={s.dialog}>
-            <NavLink to={path}
-                     className={navData => navData.isActive ? s.dialogActive : s.dialog}>{props.name}</NavLink>
-        </div>
-    )
-}
-// Function to render one element from messages list
-const MessageItem = (props: MessageType) => {
-    return (
-        <div className={s.message}>
-            {props.message}
-        </div>
-    )
-}
 
 export const Dialogs: React.FC<DialogType> = (props) => {
     // Names data (initial state)
@@ -50,17 +26,17 @@ export const Dialogs: React.FC<DialogType> = (props) => {
     ]
     // Messages data (initial state)
     let MessageData: Array<MessageDataType> = [
-        {id: 1, name: "Message 1"},
-        {id: 2, name: "Message 2"},
-        {id: 3, name: "Message 3"},
-        {id: 4, name: "Message 4"},
-        {id: 5, name: "Message 5"},
-        {id: 6, name: "Message 6"},
+        {id: 1, message: "Message 1"},
+        {id: 2, message: "Message 2"},
+        {id: 3, message: "Message 3"},
+        {id: 4, message: "Message 4"},
+        {id: 5, message: "Message 5"},
+        {id: 6, message: "Message 6"},
     ]
     // Function to render names list from data (map)
     const namesList = DialogData.map(d => <DialogItem name={d.name} id={d.id}/>)
     // Function to render messages list from data (map)
-    const messagesList = MessageData.map(m => <MessageItem message={m.name}/>)
+    const messagesList = MessageData.map(m => <MessageItem message={m.message} id={m.id}/>)
 
     return (
         <div className={s.dialogs}>
