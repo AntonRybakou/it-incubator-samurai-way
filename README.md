@@ -36,6 +36,5 @@
                 E--.messagesData.map-->E2[&ltMessageItem/>]
             C-->F(&ltNews/>)
             C-->G(&ltMusic/>)
-                G-->G1[GAMeZA]
             C-->H(&ltSettings/>)
 ```
