@@ -25,15 +25,15 @@
 ## Внутри приложения:
 ```mermaid
   graph TD;
-    A(Index.tsx)-->B(&ltBrowserRouter/>);
-        B-->C(&ltApp/>)
-            C-->D(&ltProfile/>)
+    A(Redux/State.ts)--state-->B(Index.tsx);
+        B-->C(&ltBrowserRouter/><br>&ltApp/><br>&ltBrowserRouter/>)
+            C--.profilePage-->D(&ltProfile/>)
                 D-->D1(&ltProfileInfo/>)
-                D-->D2(&ltMyPosts/>)
-                    D2-->Post
-            C-->E(&ltDialogs/>)
-                E-->E1(&ltDialogItem/>)
-                E-->E2(&ltMessageItem/>)
+                D--.postsData-->D2(&ltMyPosts/>)
+                    D2--postsData.map-->Post
+            C--.dialogsPage-->E(&ltDialogs/>)
+                E--.dialogsData.map-->E1(&ltDialogItem/>)
+                E--.messagesData.map-->E2(&ltMessageItem/>)
             C-->F(&ltNews/>)
             C-->G(&ltMusic/>)
             C-->H(&ltSettings/>)
