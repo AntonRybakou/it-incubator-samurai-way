@@ -1,10 +1,14 @@
 import React from 'react';
 import s from '../Dialogs.module.css';
 import {NavLink} from "react-router-dom";
-import {DialogDataType} from "../Dialogs";
+
+type DialogItemPropsType = {
+    name: string,
+    id: number,
+}
 
 // Function to render one element from names list
-export const DialogItem = (props: DialogDataType) => {
+export const DialogItem: React.FC<DialogItemPropsType> = (props) => {
     let path = '/dialogs/' + props.id;
     return (
         <div className={s.dialog}>

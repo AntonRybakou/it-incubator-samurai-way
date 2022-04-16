@@ -8,20 +8,33 @@ import {Dialogs} from "./components/Dialogs/Dialogs";
 import {Music} from "./components/Music/Music";
 import {News} from './components/News/News';
 import {Settings} from './components/Settings/Settings';
+import {DialogsDataType, MessageDataType, PostsDataType} from "./index";
 
-export const App: React.FC<any> = (props) => {
+type AppPropsType = {
+    postsData: Array<PostsDataType>,
+    dialogsData: Array<DialogsDataType>,
+    messagesData: Array<MessageDataType>,
+}
+
+export const App: React.FC<AppPropsType> = (props) => {
     return (
         <div className={"app-wrapper"}>
             <Header/>
             <Navbar/>
             <div className={"app-wrapper-content"}>
                 <Routes>
-                    <Route path="/" element={<Profile/>}/>
-                    <Route path="/profile" element={<Profile/>}/>
-                    <Route path="/dialogs/*" element={<Dialogs/>}/>
-                    <Route path="/news" element={<News/>}/>
-                    <Route path="/music" element={<Music/>}/>
-                    <Route path="/settings" element={<Settings/>}/>
+                    <Route path="/"
+                           element={<Profile postsData={props.postsData}/>}/>
+                    <Route path="/profile"
+                           element={<Profile postsData={props.postsData}/>}/>
+                    <Route path="/dialogs/*"
+                           element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>}/>
+                    <Route path="/news"
+                           element={<News/>}/>
+                    <Route path="/music"
+                           element={<Music/>}/>
+                    <Route path="/settings"
+                           element={<Settings/>}/>
                 </Routes>
             </div>
         </div>
