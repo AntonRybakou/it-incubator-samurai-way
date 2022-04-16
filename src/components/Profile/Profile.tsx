@@ -2,10 +2,10 @@ import React from 'react';
 import s from './Profile.module.css'
 import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import {PostsDataType} from "../../index";
+import {ProfilePageType} from "../../redux/state";
 
 type ProfilePropsType = {
-    postsData: Array<PostsDataType>
+    state: ProfilePageType
 }
 
 export const Profile: React.FC<ProfilePropsType> = (props) => {
@@ -13,7 +13,7 @@ export const Profile: React.FC<ProfilePropsType> = (props) => {
     return (
         <div className={s.content}>
             <ProfileInfo/>
-            <MyPosts postsData={props.postsData}/>
+            <MyPosts postsData={props.state.postsData}/>
         </div>
     )
 }

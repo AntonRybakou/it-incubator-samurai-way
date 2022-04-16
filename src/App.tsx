@@ -8,12 +8,10 @@ import {Dialogs} from "./components/Dialogs/Dialogs";
 import {Music} from "./components/Music/Music";
 import {News} from './components/News/News';
 import {Settings} from './components/Settings/Settings';
-import {DialogsDataType, MessageDataType, PostsDataType} from "./index";
+import {StateType} from './redux/state'
 
 type AppPropsType = {
-    postsData: Array<PostsDataType>,
-    dialogsData: Array<DialogsDataType>,
-    messagesData: Array<MessageDataType>,
+    state: StateType
 }
 
 export const App: React.FC<AppPropsType> = (props) => {
@@ -24,11 +22,11 @@ export const App: React.FC<AppPropsType> = (props) => {
             <div className={"app-wrapper-content"}>
                 <Routes>
                     <Route path="/"
-                           element={<Profile postsData={props.postsData}/>}/>
+                           element={<Profile state={props.state.profilePage}/>}/>
                     <Route path="/profile"
-                           element={<Profile postsData={props.postsData}/>}/>
+                           element={<Profile state={props.state.profilePage}/>}/>
                     <Route path="/dialogs/*"
-                           element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>}/>
+                           element={<Dialogs state={props.state.dialogsPage}/>}/>
                     <Route path="/news"
                            element={<News/>}/>
                     <Route path="/music"

@@ -1,20 +1,4 @@
-# Samurai-way-ts
-
-```mermaid
-  graph TD;
-    A(Index.tsx)-->B(&ltBrowserRouter/>);
-        B-->C(&ltApp/>)
-            C-->D(&ltProfile/>)
-                D-->D1(&ltProfileInfo/>)
-                D-->D2(&ltMyPosts/>)
-                    D2-->Post
-            C-->E(&ltDialogs/>)
-                E-->E1(&ltDialogItem/>)
-                E-->E2(&ltMessageItem/>)
-            C-->F(&ltNews/>)
-            C-->G(&ltMusic/>)
-            C-->H(&ltSettings/>)
-```
+# Samurai way (ts)
 
 ### Библиотеки:
 
@@ -37,3 +21,20 @@
 - **typescript**
 - **uuid** and **@types/uuid**
 
+
+## Внутри приложения:
+```mermaid
+  graph TD;
+    A(Index.tsx)-->B(&ltBrowserRouter/>);
+        B-->C(&ltApp/>)
+            C-->D(&ltProfile/>)
+                D-->D1(&ltProfileInfo/>)
+                D-->D2(&ltMyPosts/>)
+                    D2-->Post
+            C-->E(&ltDialogs/>)
+                E-->E1(&ltDialogItem/>)
+                E-->E2(&ltMessageItem/>)
+            C-->F(&ltNews/>)
+            C-->G(&ltMusic/>)
+            C-->H(&ltSettings/>)
+```
