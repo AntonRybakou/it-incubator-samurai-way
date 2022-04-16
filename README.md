@@ -32,9 +32,10 @@
                 D--.postsData-->D2(&ltMyPosts/>)
                     D2--postsData.map-->Post
             C--.dialogsPage-->E(&ltDialogs/>)
-                E--.dialogsData.map-->E1(&ltDialogItem/>)
-                E--.messagesData.map-->E2(&ltMessageItem/>)
+                E--.dialogsData.map-->E1[&ltDialogItem/>]
+                E--.messagesData.map-->E2[&ltMessageItem/>]
             C-->F(&ltNews/>)
             C-->G(&ltMusic/>)
+                G-->G1[GAMeZA]
             C-->H(&ltSettings/>)
 ```
