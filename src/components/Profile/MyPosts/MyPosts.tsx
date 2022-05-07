@@ -10,7 +10,7 @@ type MyPostsType = {
 
 export const MyPosts: React.FC<MyPostsType> = (props) => {
     // Function to render all posts from data (map)
-    const postsList = props.postsData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
+    const postsList = props.postsData.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
     // Create a reference to text in the text area
     const newPostElement = React.createRef<HTMLTextAreaElement>()
     // Callback function for button to add post
@@ -18,6 +18,7 @@ export const MyPosts: React.FC<MyPostsType> = (props) => {
         if (newPostElement.current) {
             const text = newPostElement.current.value;
             props.addPost(text)
+            newPostElement.current.value ='';
         }
     }
 
