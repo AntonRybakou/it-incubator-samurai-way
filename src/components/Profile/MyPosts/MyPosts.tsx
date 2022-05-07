@@ -1,10 +1,11 @@
-import React, {RefObject} from 'react';
+import React from 'react';
 import s from './MyPosts.module.css'
 import {Post} from "./Post/Post";
 import {PostsDataType} from "../../../redux/state";
 
 type MyPostsType = {
     postsData: Array<PostsDataType>,
+    addPost: (postMessage: string) => void
 }
 
 export const MyPosts: React.FC<MyPostsType> = (props) => {
@@ -16,7 +17,7 @@ export const MyPosts: React.FC<MyPostsType> = (props) => {
     const addPost = () => {
         if (newPostElement.current) {
             const text = newPostElement.current.value;
-            alert(text)
+            props.addPost(text)
         }
     }
 
