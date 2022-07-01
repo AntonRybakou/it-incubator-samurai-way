@@ -18,27 +18,25 @@ export const MyPosts: React.FC<MyPostsType> = (props) => {
         if (newPostElement.current) {
             const text = newPostElement.current.value;
             props.addPost(text)
-            newPostElement.current.value ='';
+            newPostElement.current.value = '';
         }
     }
 
-    return (
-        <div className={s.postsBlock}>
-            <h3>My posts</h3>
+    return <div className={s.postsBlock}>
+        <h3>My posts</h3>
+        <div>
             <div>
-                <div>
                     <textarea
                         placeholder={'type message'}
                         ref={newPostElement}>
                     </textarea>
-                </div>
-                <div>
-                    <button onClick={addPost}>Add post</button>
-                </div>
             </div>
-            <div className={s.posts}>
-                {postsList}
+            <div>
+                <button onClick={addPost}>Add post</button>
             </div>
         </div>
-    )
+        <div className={s.posts}>
+            {postsList}
+        </div>
+    </div>
 }
